@@ -237,7 +237,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 88331646}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 73cc304f1aa7c464f87cf718284e2938, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -270,7 +270,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 73cc304f1aa7c464f87cf718284e2938, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -287,6 +287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0595e34fd85d4469ac70063f491ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.8
+  range: 3
+  animator: {fileID: 88331647}
+  maxHealth: 100
 --- !u!1 &100693819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,6 +3463,8 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  attackDamage: 40
+  attackRate: 2
 --- !u!1 &932833316
 GameObject:
   m_ObjectHideFlags: 0
