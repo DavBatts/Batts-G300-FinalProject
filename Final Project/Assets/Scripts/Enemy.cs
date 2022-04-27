@@ -13,11 +13,16 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
+    public Transform targetPlayer;
+    public float distance;
+
+
     // Start is called before the first frame update
     void Start()
     {
         startingX = transform.position.x;
         currentHealth = maxHealth;
+        targetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void FixedUpdate()
@@ -25,6 +30,24 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime * dir);
         if (transform.position.x < startingX || transform.position.x > startingX + range)
             dir *= -1;
+    }
+
+    void Update()
+    {
+        if (Vector2.Distance(transform.position, targetPlayer.position) >= distance)
+        {
+        transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, speed * Time.deltaTime);
+        }
+
+        if(transform.position.x < targetPlayer.position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
     }
 
     public void TakeDamage(int damage)
